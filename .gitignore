@@ -1,1 +1,12 @@
+#   Binary programs.
 example
+
+#   Gcov data.
+example.gcno
+example.gcda
+
+#   Lcov data?
+lcov.info
+
+#   Lcov reports.
+gcov_results/
