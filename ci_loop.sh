@@ -38,10 +38,7 @@ current_hash=`nice -n 19 git log --pretty=%H | head -1`
 
 until false
 do
-#   The step 2 is incidentally moved to after the first variant of step
-# 3 because being the same hash as the step1, the script fails to try to
-# build it.
-for branch in step0 step1 step3a0 step2 step3b0
+for branch in step0 step1 step2 step3a0 step3a1 step3b0
 do
 	previous_hash=${current_hash} &&
 			nice -n 19 git fetch origin &&
@@ -74,6 +71,7 @@ do
 			BRANCH_COVERAGE=''
 		elif test "${branch}" == 'step2' \
 				-o "${branch}" == 'step3a0' \
+				-o "${branch}" == 'step3a1' \
 				-o "${branch}" == 'step3b0'
 		then
 			FRAMES=''
@@ -157,6 +155,6 @@ do
 done
 nice -n 19 git checkout ${ORIGINAL_BRANCH}
 date
-echo 'sleep 300...'
-sleep 300
+echo 'sleep 900...'
+sleep 900
 done
