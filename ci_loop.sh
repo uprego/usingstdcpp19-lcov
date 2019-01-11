@@ -60,8 +60,9 @@ do
 		# some tests like external arguments provisioning.
 		true &&
 				# ./run_tests.py &&
-				# (./example && false || true) &&
-				# (./example mierda && false || true) &&
+				(./example && false || true) &&
+				(./example mierda && false || true) &&
+				(./example a && false || true) &&
 				./example 5 &&
 				figlet 'successfully ran tests'
 
