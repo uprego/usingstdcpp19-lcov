@@ -69,11 +69,7 @@ main(int argc, char * argv[])
 
 	//   Do the data processing, et cetera.
 
-	return RETURN_VALUE_SUCCESS; // LCOV_EXCL_LINE
+	return RETURN_VALUE_SUCCESS;
 
-
-	// foooooo
-	//
-	//
-	// FFFFFFFFFFFFFFFUUUUUUUUUUUUUUUUUU
-}//LCOV_EXCL_LINE
+//   `LCOV_EXCL_LINE` required here by Gcov `4.8.5` and Lcov `1.13`.
+} // LCOV_EXCL_LINE
