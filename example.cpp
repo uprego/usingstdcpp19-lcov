@@ -76,4 +76,4 @@ main(int argc, char * argv[])
 	//
 	//
 	// FFFFFFFFFFFFFFFUUUUUUUUUUUUUUUUUU
-}
+}//LCOV_EXCL_LINE
