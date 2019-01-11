@@ -27,9 +27,12 @@ CXX_COVERAGE_FLAGS='-fprofile-arcs -ftest-coverage'
 
 CXX_EXCEPTIONS_FLAG='-fno-exceptions'
 
+FIXER='-fno-inline'
+
 ${CXX} \
 		--std=${STANDARD} \
 		example.cpp \
 		${CXX_COVERAGE_FLAGS} \
 		${CXX_EXCEPTIONS_FLAG} \
+		${FIXER} \
 		-o example
