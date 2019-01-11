@@ -19,9 +19,9 @@
 #
 
 
-CXX='g++'
+CC='gcc'
 
-STANDARD='c++11'
+STANDARD='c11'
 
 
-${CXX} --std=${STANDARD} example.cpp -fprofile-arcs -ftest-coverage -o example
+${CC} --std=${STANDARD} example.c -fprofile-arcs -ftest-coverage -o example

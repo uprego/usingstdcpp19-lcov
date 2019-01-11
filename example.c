@@ -16,7 +16,7 @@
  * example.cpp: Simple example.
  */
 
-#include <iostream>
+#include <stdio.h>
 
 const unsigned char SIGNAL_INVALID_ARGS_RETVAL_SUCCESS = 0;
 
@@ -27,14 +27,14 @@ signal_invalid_args(int argc, char * argv[])
 {
 	if (argc != 2) {
 
-		std::cerr << "must receive exactly one argument" << std::endl;
+		fprintf(stderr, "must receive exactly one argument\n");
 		return SIGNAL_INVALID_ARGS_RETVAL_ERROR_INVALID_ARGS;
 	}
 
 	if (argv[1][1] != 0x00) {
 
-		std::cerr << "argument must be exactly one character "
-				<< "wide" << std::endl;
+		fprintf(stderr, "argument must be exactly one character ");
+		fprintf(stderr, "wide\n");
 		return SIGNAL_INVALID_ARGS_RETVAL_ERROR_INVALID_ARGS;
 	}
 
@@ -42,7 +42,7 @@ signal_invalid_args(int argc, char * argv[])
 	//   ASCII 58: '9'.  //   `0x3a`.
 	if (argv[1][0] < 0x30 || argv[1][0] > 0x3a) {
 
-		std::cerr << "a digit is required as argument" << std::endl;
+		fprintf(stderr, "a digit is required as argument\n");
 		return SIGNAL_INVALID_ARGS_RETVAL_ERROR_INVALID_ARGS;
 	}
 
