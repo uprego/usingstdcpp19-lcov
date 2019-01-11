@@ -7,6 +7,7 @@ true &&
 		(./example || true) &&
 		(./example mierda || true) &&
 		(./example a || true) &&
+		(./example \. || true) &&
 		./example 5 &&
 		exit ${SUCCESS}
 
