@@ -23,5 +23,13 @@ CXX='g++'
 
 STANDARD='c++11'
 
+CXX_COVERAGE_FLAGS='-fprofile-arcs -ftest-coverage'
 
-${CXX} --std=${STANDARD} example.cpp -fprofile-arcs -ftest-coverage -o example
+CXX_EXCEPTIONS_FLAG='-fno-exceptions'
+
+${CXX} \
+		--std=${STANDARD} \
+		example.cpp \
+		${CXX_COVERAGE_FLAGS} \
+		${CXX_EXCEPTIONS_FLAG} \
+		-o example
