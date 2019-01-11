@@ -38,7 +38,7 @@ current_hash=`nice -n 19 git log --pretty=%H | head -1`
 
 until false
 do
-for branch in develop
+for branch in step0 step1
 do
 	previous_hash=${current_hash} &&
 			nice -n 19 git fetch origin &&
@@ -59,10 +59,7 @@ do
 		#   Run external controlled test cases - necessary for
 		# some tests like external arguments provisioning.
 		true &&
-				# ./run_tests.py &&
-				# (./example && false || true) &&
-				# (./example mierda && false || true) &&
-				./example 5 &&
+				./run_cases.sh &&
 				figlet 'successfully ran tests'
 
 		#   Generate the coverage reports.
