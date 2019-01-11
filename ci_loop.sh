@@ -38,7 +38,7 @@ current_hash=`nice -n 19 git log --pretty=%H | head -1`
 
 until false
 do
-for branch in step0 step1
+for branch in step0 step1 step2
 do
 	previous_hash=${current_hash} &&
 			nice -n 19 git fetch origin &&
@@ -61,6 +61,22 @@ do
 		true &&
 				./run_cases.sh &&
 				figlet 'successfully ran tests'
+
+		#   Can not use `--frames` in `genhtml` because it seems
+		# to break branches coverage.
+		#   Branches coverage is added with `--branch-coverage`.
+		if test "${branch}" == 'step0' -o "${branch}" == 'step1'
+		then
+			FRAMES='--frames'
+			BRANCH_COVERAGE=''
+		elif test "${branch}" == 'step2'
+		then
+			FRAMES=''
+			BRANCH_COVERAGE='--branch-coverage'
+		else
+			FRAMES=''
+			BRANCH_COVERAGE=''
+		fi
 
 		#   Generate the coverage reports.
 		true &&
@@ -87,7 +103,8 @@ do
 				#   Branches coverage is added with
 				#  `--branch-coverage`.
 				nice -n 19 genhtml \
-						--frames \
+						${FRAMES} \
+						${BRANCH_COVERAGE} \
 						--title 'usingstdcpp19-lcov' \
 						--precision 2 \
 						--output-directory \
