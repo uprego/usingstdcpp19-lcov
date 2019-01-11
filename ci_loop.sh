@@ -38,7 +38,7 @@ current_hash=`nice -n 19 git log --pretty=%H | head -1`
 
 until false
 do
-for branch in step0 step1 step2 step3a0 step3a1 step3b0
+for branch in step0 step1 step2 step3a0 step3a1 step3b0 step3b1
 do
 	previous_hash=${current_hash} &&
 			nice -n 19 git fetch origin &&
@@ -72,7 +72,8 @@ do
 		elif test "${branch}" == 'step2' \
 				-o "${branch}" == 'step3a0' \
 				-o "${branch}" == 'step3a1' \
-				-o "${branch}" == 'step3b0'
+				-o "${branch}" == 'step3b0' \
+				-o "${branch}" == 'step3b1'
 		then
 			FRAMES=''
 			BRANCH_COVERAGE='--branch-coverage'
